@@ -3,34 +3,31 @@ id: public-api-guide
 title: Public API quick guide
 ---
 
-Connecting to the API is done via the Crypto and Client SDKs. Many queries can be performed using the Client SDK alone, while the Crypto SDK performs any actions requiring cryptographic functionality (i.e., signing transactions).
+# Public API Guide
+
+Connecting to the API is done via the Crypto and Client SDKs. Many queries can be performed using the Client SDK alone, while the Crypto SDK performs any actions requiring cryptographic functionality \(i.e., signing transactions\).
 
 At a surface level, the two SDKs are separated by their functions and intended use cases:
 
-- The Crypto SDK provides the cryptographic functions necessary to authenticate and validate ARK transactions.
-- The Client SDK provides wrapper functions to unify and streamline API calls between your application and the ARK blockchain.
+* The Crypto SDK provides the cryptographic functions necessary to authenticate and validate ARK transactions.
+* The Client SDK provides wrapper functions to unify and streamline API calls between your application and the ARK blockchain.
 
 Put another way, the Crypto SDK structures your data in a format that all ARK nodes can understand, while the Client SDK handles the actual communication between your application and an ARK node. Where the Crypto SDK is internal, the Client SDK is external, as the below diagram illustrates:
 
-![A diagram showing the differences between Client and Crypto APIs](assets/public-api/client-crypto.png)
+![](../.gitbook/assets/client-crypto.png)
 
-> Note that the [Public API](/api/public) is only available after a node has fully synced. This ensures your data on the blockchain is up to date.
+> Note that the [Public API](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/public/README.md) is only available after a node has fully synced. This ensures your data on the blockchain is up to date.
 
 ## Setup
 
 These quick actions will all assume you've loaded a Client instance with the IP address of your node and the API version you're requesting.
 
-> ARK Node (v1) has been deprecated. Some references to V1 client constructors may remain for legacy purposes. However, no current clients require you to specify the API Version (defaults to v2).
+> ARK Node \(v1\) has been deprecated. Some references to V1 client constructors may remain for legacy purposes. However, no current clients require you to specify the API Version \(defaults to v2\).
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-
-```js
+```javascript
 const Client = require("@arkecosystem/client");
 const exchangeClient = new Client("YOUR.NODE.IP", 2);
 ```
-
-<!--Java-->
 
 ```java
 HashMap<String, Object> map = new HashMap<>();
@@ -39,8 +36,6 @@ map.put("API-Version", 2);
 
 Connection<Two> connection = new Connection(map);
 ```
-
-<!--Golang-->
 
 ```go
 package main
@@ -55,23 +50,16 @@ func main() {
   client.BaseURL, _ = url.Parse("http://{NODE_IP}:{NODE_HOST}/api")
 ```
 
-<!--Python-->
-
 ```python
 from client import ARKClient
 client = ARKClient('http://127.0.0.1:4003/api')
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ## Check Wallet Balance
 
 Checking a wallet balance involves using the `wallets` resource to `GET` the wallet corresponding to a given ARK address.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-
-```js
+```javascript
 const walletAddress = "ARyNwFj7nQUCip5gYt4gSWG6F8evL93eBL";
 let wallet;
 
@@ -88,10 +76,7 @@ exchangeClient
 console.log(wallet.balance);
 ```
 
-<!--Golang-->
-
 ```go
-
 ...
 import "github.com/davecgh/go-spew/spew"
 
@@ -105,24 +90,17 @@ func main() {
 }
 ```
 
-<!--Python-->
-
 ```python
 from pprint import pprint
 
 pprint(client.wallets.get(wallet_id='ARyNwFj7nQUCip5gYt4gSWG6F8evL93eBL'))
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ## Find Block Information
 
 If you know the ID of the block you are looking for, you can use the `GET` method on the `blocks` resource to return information on that block.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-
-```js
+```javascript
 const blockId = 4439278960598580069;
 let block;
 
@@ -139,8 +117,6 @@ exchangeClient
 console.log(block);
 ```
 
-<!--Golang-->
-
 ```go
 func main() {
   ...
@@ -152,34 +128,27 @@ func main() {
 }
 ```
 
-<!--Python-->
-
 ```python
 pprint(client.blocks.get(block_id='4439278960598580069'))
 ```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 Alternatively, if you are not sure of the block ID, or if you want to find all wallets in a range, you can make use of the `wallets.search` method. This endpoint accepts a JSON object representing the search parameters to use when narrowing down a list of blocks.
 
 The following block properties can be used to create your range:
 
-- timestamp
-- height
-- numberOfTransactions
-- totalAmount
-- totalFee
-- reward
-- payloadLength
+* timestamp
+* height
+* numberOfTransactions
+* totalAmount
+* totalFee
+* reward
+* payloadLength
 
 To use any of these properties as a range, include the relevant key in your request as an object containing `from` and `to` specifiers.
 
 For example, this code can be used to search all blocks between blockchain heights 720 and 735 with total fees between 0 and 2000 arktoshi:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-
-```js
+```javascript
 exchangeClient
   .resource("blocks")
   .search({
@@ -197,8 +166,6 @@ exchangeClient
   });
 ```
 
-<!--Golang-->
-
 ```go
 func main() {
   ...
@@ -213,8 +180,6 @@ func main() {
 }
 ```
 
-<!--Python-->
-
 ```python
 pprint(client.blocks.search({
   "height": {"from": 720, "to": 735},
@@ -222,32 +187,21 @@ pprint(client.blocks.search({
   }))
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 ## Create and Broadcast Transactions
 
 To create transactions, make use of the **transactionBuilder** module of `@arkecosystem/crypto`. First, install the package from npm or your language's equivalent:
-
-<!--DOCUSAURUS_CODE_TABS-->
-<!--yarn-->
 
 ```bash
 yarn add @arkecosystem/crypto
 ```
 
-<!--Go Get-->
-
 ```bash
 go get -u github.com/arkecosystem/go-crypto/crypto
 ```
 
-<!--pip-->
-
 ```bash
 pip install arkecosystem-crypto
 ```
-
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 The `crypto` package functionality we'll use here is the transactionBuilder, which provides a series of "chainable" methods that can be called, one after another, to produce a transaction object. These methods create and define your transaction: its type, its amount in arktoshis, its signature, and more.
 
@@ -257,10 +211,7 @@ After making one or more of these transaction objects, you can combine them into
 
 With all the steps together, here is an example of how to send a transaction for approval:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-
-```js
+```javascript
 const crypto = require("@arkecosystem/crypto");
 const transactionBuilder = crypto.transactionBuilder;
 
@@ -290,8 +241,6 @@ exchangeClient
   });
 ```
 
-<!--Golang-->
-
 ```go
 ...
 import ark_crypto "github.com/arkecosystem/go-crypto/crypto"
@@ -315,8 +264,6 @@ func main() {
 }
 ```
 
-<!--Python-->
-
 ```python
 ...
 
@@ -327,8 +274,6 @@ tx.sign(passphrase)
 pprint(client.transactions.create([tx]))
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 There are a few things worth noticing about the above code. Firstly, the code assumes that you have declared two variables already:
 
 1. `passphrase` - the passphrase of the sending account, used to sign the transaction. This should come from somewhere secure, such as a `.env` file.
@@ -338,7 +283,7 @@ Second, when sending your request using the `exchangeClient`, ensure that the va
 
 If your request is successful, you will receive a response with the following `data` key:
 
-```js
+```javascript
 {
   data: {
       accept: [ '96e3952b66a370d8145055b55cedc6f1435b3a71cb17334aa954f8844ad1202f' ],
@@ -363,16 +308,13 @@ If we had submitted any invalid transactions, the `invalid` list would have cont
 
 The diagram below offers a top-level overview of the transaction submission process:
 
-![A diagram demonstrating the transaction flow in Public API](assets/public-api/transaction-flow.png)
+![](../.gitbook/assets/transaction-flow.png)
 
 ## Check Transaction Confirmations
 
 Once a transaction has been created and added to the blockchain, you can access the number of confirmations it has by using the `transactions` resource to `get` the value matching the transaction ID.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-
-```js
+```javascript
 const transactionId =
   "9085b309dd0c20c12c1a00c40e1c71cdadaa74476b669e9f8a632db337fb6915";
 
@@ -383,8 +325,6 @@ exchangeClient
     console.log(response.data);
   });
 ```
-
-<!--Golang-->
 
 ```go
 ...
@@ -400,18 +340,14 @@ func main() {
 }
 ```
 
-<!--Python-->
-
 ```python
 txID = "9085b309dd0c20c12c1a00c40e1c71cdadaa74476b669e9f8a632db337fb6915"
 pprint(client.transactions.get(transaction_id=txID))
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 If the transaction has been added to the blockchain, you'll receive the following data structure in your console:
 
-```js
+```javascript
 {
   data: {
     id: 'a4d3d3ab059b8445894805c1158f06049a4200b2878892e18d95b88fc57d0ae5',
@@ -439,10 +375,7 @@ You can see that the `confirmations` key holds the number of confirmations this 
 
 Checking node status can be done by using the `node` resource's `status` method:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-
-```js
+```javascript
 exchangeClient
   .resource("node")
   .status()
@@ -450,8 +383,6 @@ exchangeClient
     console.log(response.data);
   });
 ```
-
-<!--Golang-->
 
 ```go
 ...
@@ -466,17 +397,13 @@ func main() {
 }
 ```
 
-<!--Python-->
-
 ```python
 pprint(client.node.status())
 ```
 
-<!--END_DOCUSAURUS_CODE_TABS-->
-
 By running this code, you'd see the output in your console resembling the following object:
 
-```js
+```javascript
 {
   data: {
     synced: true,     // whether this node is fully synchronized with the network
@@ -487,3 +414,4 @@ By running this code, you'd see the output in your console resembling the follow
 ```
 
 If `synced` is true, your node is operating as expected and fully synced with the ARK network. Otherwise, use the `blocksCount` key to get an estimation of how long your node will take to sync.
+

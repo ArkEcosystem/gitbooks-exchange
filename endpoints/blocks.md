@@ -1,28 +1,30 @@
 ---
-title: "Blocks"
+title: Blocks
 ---
+
+# Blocks
 
 ## Get a Block
 
 ### Method
 
-```
+```text
 blocks.info
 ```
 
 ### Body Parameters
 
-| Name      |  Type  | Description                                  | Required |
-| :-------- | :----: | :------------------------------------------- | :------: |
-| jsonrpc   | string | The protocol version.                        |   Yes    |
-| id        | string | The identifier of the request.               |   Yes    |
-| method    | string | The method name.                             |   Yes    |
-| params    | object | The parameters of the request.               |   Yes    |
-| params.id | string | The identifier of the block to be retrieved. |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.id | string | The identifier of the block to be retrieved. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -35,7 +37,7 @@ blocks.info
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -71,7 +73,7 @@ blocks.info
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -87,21 +89,21 @@ blocks.info
 
 ### Method
 
-```
+```text
 blocks.latest
 ```
 
 ### Body Parameters
 
-| Name    |  Type  | Description                    | Required |
-| :------ | :----: | :----------------------------- | :------: |
-| jsonrpc | string | The protocol version.          |   Yes    |
-| id      | string | The identifier of the request. |   Yes    |
-| method  | string | The method name.               |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -111,7 +113,7 @@ blocks.latest
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -147,7 +149,7 @@ blocks.latest
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -163,24 +165,24 @@ blocks.latest
 
 ### Method
 
-```
+```text
 blocks.transactions
 ```
 
 ### Body Parameters
 
-| Name          |  Type  | Description                                  | Required |
-| :------------ | :----: | :------------------------------------------- | :------: |
-| jsonrpc       | string | The protocol version.                        |   Yes    |
-| id            | string | The identifier of the request.               |   Yes    |
-| method        | string | The method name.                             |   Yes    |
-| params        | object | The parameters of the request.               |   Yes    |
-| params.id     | string | The identifier of the block to be retrieved. |   Yes    |
-| params.offset |  int   | The offset of transactions to be retrieved.  |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.id | string | The identifier of the block to be retrieved. | Yes |
+| params.offset | int | The offset of transactions to be retrieved. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -193,7 +195,7 @@ blocks.transactions
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -223,7 +225,7 @@ blocks.transactions
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -234,3 +236,4 @@ blocks.transactions
   }
 }
 ```
+

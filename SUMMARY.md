@@ -1,20 +1,22 @@
-# Table Of Contents
+# Table of contents
 
-* [Prologue](prologue/getting-started.md)
+* [Introduction](README.md)
+* [Prologue](getting-started.md)
 
 ## Node Installation
 
-* [Relay Using Docker](node/relay-using-docker.md)
-* [Installation Instructions](node/installation-instructions.md)
-* [Public Api Guide](node/public-api-guide.md)
+* [Relay Using Docker](node-installation/relay-using-docker.md)
+* [Installation Instructions](node-installation/installation-instructions.md)
+* [Public API Guide](node-installation/public-api-guide.md)
 
 ## JSON-RPC
 
 * [Getting Started](json-rpc/getting-started.md)
 * [Examples](json-rpc/examples.md)
 
-### Endpoints
+## Endpoints
 
-* [Blocks](json-rpc/endpoints/blocks.md)
-* [Transactions](json-rpc/endpoints/transactions.md)
-* [Wallets](json-rpc/endpoints/wallets.md)
+* [Blocks](endpoints/blocks.md)
+* [Transactions](endpoints/transactions.md)
+* [Wallets](endpoints/wallets.md)
+

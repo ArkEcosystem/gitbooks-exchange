@@ -3,18 +3,20 @@ id: relay-using-docker
 title: Run a relay node using Docker
 ---
 
+# Relay Using Docker
+
 ### Recommended Hardware Requirements
 
-- 4GB RAM
-- 40GB SSD
-- 2 Cores
+* 4GB RAM
+* 40GB SSD
+* 2 Cores
 
 ARK Nodes execute many query intensive operations. The most cost-effective approach for running a high-performance node is choosing SSD over HDD. Increasing the total RAM improves cache performance.
 
 > Prerequisites to be installed:
->  - [Docker Community Edition](https://docs.docker.com/install)
->  - [Docker Compose](https://docs.docker.com/compose/install)
-
+>
+> * [Docker Community Edition](https://docs.docker.com/install)
+> * [Docker Compose](https://docs.docker.com/compose/install)
 
 ## Install Docker Community Edition
 
@@ -22,39 +24,38 @@ On a fresh OS installation, follow these steps:
 
 ### Install Docker CE - Ubuntu / Debian
 
-- Preferably use latest stable OS version!
-
-1. Uninstall old versions:
+* Preferably use latest stable OS version!
+* Uninstall old versions:
 
 ```bash
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
-2. Install prerequisites:
+1. Install prerequisites:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ```
 
-3. Add Docker's official GPG key:
+1. Add Docker's official GPG key:
 
 ```bash
 curl -fsSL https://download.docker.com/linux/$(grep "^ID=" /etc/os-release | cut -d\= -f2)/gpg | sudo apt-key add -
 ```
 
-4. Add Docker's official repository:
+1. Add Docker's official repository:
 
 ```bash
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(grep "^ID=" /etc/os-release | cut -d\= -f2) $(lsb_release -cs) stable"
 ```
 
-5. Install Docker CE:
+1. Install Docker CE:
 
 ```bash
 sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 ```
 
-6. Make Docker usage as a `non-root` user possible:
+1. Make Docker usage as a `non-root` user possible:
 
 ```bash
 sudo usermod -aG docker ${USER}
@@ -64,39 +65,38 @@ sudo usermod -aG docker ${USER}
 
 ### Install Docker CE - CentOS
 
-- Preferably use latest stable OS version!
-
-1. Uninstall old versions:
+* Preferably use latest stable OS version!
+* Uninstall old versions:
 
 ```bash
 sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
 ```
 
-2. Install prerequisites:
+1. Install prerequisites:
 
 ```bash
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
 
-4. Add Docker's official repository:
+1. Add Docker's official repository:
 
 ```bash
 sudo yum-config-manager --add-repo  https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
-5. Install Docker CE:
+1. Install Docker CE:
 
 ```bash
 sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
-6. Start Docker CE:
+1. Start Docker CE:
 
 ```bash
 sudo systemctl start docker && sudo systemctl enable docker
 ```
 
-7. Make Docker usage as a `non-root` user possible:
+1. Make Docker usage as a `non-root` user possible:
 
 ```bash
 sudo usermod -aG docker ${USER}
@@ -106,7 +106,7 @@ sudo usermod -aG docker ${USER}
 
 ## Install Docker Compose
 
-### Docker Compose Install (Ubuntu / Debian / CentOS Latest Stable Releases)
+### Docker Compose Install \(Ubuntu / Debian / CentOS Latest Stable Releases\)
 
 ```bash
  sudo curl -sL "https://github.com/docker/compose/releases/download/`curl -fsSLI -o /dev/null -w %{url_effective} https://github.com/docker/compose/releases/latest | sed 's#.*tag/##g' && echo`/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
@@ -127,7 +127,7 @@ curl -sOJ https://raw.githubusercontent.com/ARKEcosystem/core/master/docker/prod
 
 > For normal Node operation, make sure TCP port 4001 is accessible from outside.
 
-- If you prefer ARK Core settings other than defaults, please make your changes prior running the Core `(file=mainnet.env)`
+* If you prefer ARK Core settings other than defaults, please make your changes prior running the Core `(file=mainnet.env)`
 
 ## Starting the Relay
 
@@ -137,7 +137,7 @@ docker-compose up -d
 
 > If you prefer to use custom DB Name, DB User and DB Password simply adjust variables `POSTGRES_PASSWORD`, `POSTGRES_USER`, `POSTGRES_DB` `(file=docker-compose.yml)` and `CORE_DB_PASSWORD`, `CORE_DB_USERNAME` and `CORE_DB_DATABASE` `(file=mainnet.env)` correspondingly.
 
-- **In case you want to use a remote PostgreSQL server simply adjust variable `CORE_DB_HOST` in your `mainnet.env` and run only Core container:**
+* **In case you want to use a remote PostgreSQL server simply adjust variable `CORE_DB_HOST` in your `mainnet.env` and run only Core container:**
 
 ```bash
 docker-compose up -d core
@@ -145,7 +145,7 @@ docker-compose up -d core
 
 ## Troubleshooting
 
-- Make sure your containers are up and running:
+* Make sure your containers are up and running:
 
 ```bash
 docker ps -a --format "table {{.Names}}\t{{.Status}}"
@@ -159,7 +159,7 @@ core-mainnet        Up 4 minutes
 postgres-mainnet    Up 4 minutes
 ```
 
-- If some of the containers status is not `Up`, check docker logs:
+* If some of the containers status is not `Up`, check docker logs:
 
 ```bash
 docker logs core-mainnet
@@ -181,13 +181,13 @@ docker exec -it core-mainnet pm2 logs
 
 ### Docker Live Updates Are Now Possible With [CLI](https://docs.ark.io/guidebook/core/cli.html)
 
-- As a preliminary step, installation of development tools is necessary (only needed once, when doing initial update):
+* As a preliminary step, installation of development tools is necessary \(only needed once, when doing initial update\):
 
 ```bash
 docker exec -it core-mainnet sudo apk add make gcc g++ git python
 ```
 
-- We are all set! Run the update and follow instructions:
+* We are all set! Run the update and follow instructions:
 
 ```bash
 docker exec -it core-mainnet ark update
@@ -229,3 +229,4 @@ docker rmi $(docker images -q)
 docker volume prune -f
 docker network prune -f
 ```
+

@@ -1,28 +1,30 @@
 ---
-title: "Transactions"
+title: Transactions
 ---
+
+# Transactions
 
 ## Get a Transaction
 
 ### Method
 
-```
+```text
 transaction.info
 ```
 
 ### Body Parameters
 
-| Name      |  Type  | Description                                        | Required |
-| :-------- | :----: | :------------------------------------------------- | :------: |
-| jsonrpc   | string | The protocol version.                              |   Yes    |
-| id        | string | The identifier of the request.                     |   Yes    |
-| method    | string | The method name.                                   |   Yes    |
-| params    | object | The parameters of the request.                     |   Yes    |
-| params.id | string | The identifier of the transaction to be retrieved. |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.id | string | The identifier of the transaction to be retrieved. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -35,7 +37,7 @@ transaction.info
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -60,7 +62,7 @@ transaction.info
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -74,27 +76,27 @@ transaction.info
 
 ## Broadcast Transactions
 
-> In order to broadcast transactions via the JSON-RPC they also need to be created through it. If you are looking to just broadcast any transactions you should take a look at [Create a transactions](/api/public/v2/transactions.html#create-a-transaction) for the public API.
+> In order to broadcast transactions via the JSON-RPC they also need to be created through it. If you are looking to just broadcast any transactions you should take a look at [Create a transactions](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/public/v2/transactions.html#create-a-transaction) for the public API.
 
 ### Method
 
-```
+```text
 transactions.broadcast
 ```
 
 ### Body Parameters
 
-| Name                |  Type  | Description                                 | Required |
-| :------------------ | :----: | :------------------------------------------ | :------: |
-| jsonrpc             | string | The protocol version.                       |   Yes    |
-| id                  | string | The identifier of the request.              |   Yes    |
-| method              | string | The method name.                            |   Yes    |
-| params              | object | The parameters of the request.              |   Yes    |
-| params.transactions | array  | The list of transactions to be broadcasted. |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.transactions | array | The list of transactions to be broadcasted. | Yes |
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -107,7 +109,7 @@ transactions.broadcast
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -126,7 +128,7 @@ transactions.broadcast
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -142,25 +144,25 @@ transactions.broadcast
 
 ### Method
 
-```
+```text
 transactions.create
 ```
 
 ### Body Parameters
 
-| Name               |  Type  | Description                    | Required |
-| :----------------- | :----: | :----------------------------- | :------: |
-| jsonrpc            | string | The protocol version.          |   Yes    |
-| id                 | string | The identifier of the request. |   Yes    |
-| method             | string | The method name.               |   Yes    |
-| params             | object | The parameters of the request. |   Yes    |
-| params.recipientId | string | The address of the recipient.  |   Yes    |
-| params.amount      | string | The amount to be send.         |   Yes    |
-| params.passphrase  | string | The passphrase of the sender.  |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.recipientId | string | The address of the recipient. | Yes |
+| params.amount | string | The amount to be send. | Yes |
+| params.passphrase | string | The passphrase of the sender. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -175,7 +177,7 @@ transactions.create
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -194,7 +196,7 @@ transactions.create
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -210,26 +212,26 @@ transactions.create
 
 ### Method
 
-```
+```text
 transactions.list
 ```
 
 ### Body Parameters
 
-| Name               |  Type  | Description                    | Required |
-| :----------------- | :----: | :----------------------------- | :------: |
-| jsonrpc            | string | The protocol version.          |   Yes    |
-| id                 | string | The identifier of the request. |   Yes    |
-| method             | string | The method name.               |   Yes    |
-| params             | object | The parameters of the request. |   Yes    |
-| params.recipientId | string | The address of the recipient.  |   Yes    |
-| params.amount      | string | The amount to be send.         |   Yes    |
-| params.bip38       | string | The bip38 of the sender.       |   Yes    |
-| params.userId      | string | The identifier of the sender.  |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.recipientId | string | The address of the recipient. | Yes |
+| params.amount | string | The amount to be send. | Yes |
+| params.bip38 | string | The bip38 of the sender. | Yes |
+| params.userId | string | The identifier of the sender. | Yes |
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -245,7 +247,7 @@ transactions.list
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -264,7 +266,7 @@ transactions.list
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -275,3 +277,4 @@ transactions.list
   }
 }
 ```
+

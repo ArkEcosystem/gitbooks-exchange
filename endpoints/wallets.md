@@ -1,28 +1,30 @@
 ---
-title: "Wallets"
+title: Wallets
 ---
+
+# Wallets
 
 ## Get a Wallet
 
 ### Method
 
-```
+```text
 wallets.info
 ```
 
 ### Body Parameters
 
-| Name           |  Type  | Description                                | Required |
-| :------------- | :----: | :----------------------------------------- | :------: |
-| jsonrpc        | string | The protocol version.                      |   Yes    |
-| id             | string | The identifier of the request.             |   Yes    |
-| method         | string | The method name.                           |   Yes    |
-| params         | object | The parameters of the request.             |   Yes    |
-| params.address | string | The address of the wallet to be retrieved. |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.address | string | The address of the wallet to be retrieved. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -35,7 +37,7 @@ wallets.info
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -51,7 +53,7 @@ wallets.info
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -67,24 +69,24 @@ wallets.info
 
 ### Method
 
-```
+```text
 wallets.transactions
 ```
 
 ### Body Parameters
 
-| Name           |  Type  | Description                                      | Required |
-| :------------- | :----: | :----------------------------------------------- | :------: |
-| jsonrpc        | string | The protocol version.                            |   Yes    |
-| id             | string | The identifier of the request.                   |   Yes    |
-| method         | string | The method name.                                 |   Yes    |
-| params         | object | The parameters of the request.                   |   Yes    |
-| params.address | string | The address of the transactions to be retrieved. |   Yes    |
-| params.offset  |  int   | The offset of transactions to be retrieved.      |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.address | string | The address of the transactions to be retrieved. | Yes |
+| params.offset | int | The offset of transactions to be retrieved. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -97,7 +99,7 @@ wallets.transactions
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -127,7 +129,7 @@ wallets.transactions
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -143,23 +145,23 @@ wallets.transactions
 
 ### Method
 
-```
+```text
 wallets.create
 ```
 
 ### Body Parameters
 
-| Name              |  Type  | Description                                 | Required |
-| :---------------- | :----: | :------------------------------------------ | :------: |
-| jsonrpc           | string | The protocol version.                       |   Yes    |
-| id                | string | The identifier of the request.              |   Yes    |
-| method            | string | The method name.                            |   Yes    |
-| params            | object | The parameters of the request.              |   Yes    |
-| params.passphrase | string | The passphrase of the wallet to be created. |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.passphrase | string | The passphrase of the wallet to be created. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -172,7 +174,7 @@ wallets.create
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -185,7 +187,7 @@ wallets.create
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -201,23 +203,23 @@ wallets.create
 
 ### Method
 
-```
+```text
 wallets.bip38.info
 ```
 
 ### Body Parameters
 
-| Name          |  Type  | Description                                   | Required |
-| :------------ | :----: | :-------------------------------------------- | :------: |
-| jsonrpc       | string | The protocol version.                         |   Yes    |
-| id            | string | The identifier of the request.                |   Yes    |
-| method        | string | The method name.                              |   Yes    |
-| params        | object | The parameters of the request.                |   Yes    |
-| params.userId | string | The identifier of the wallet to be retrieved. |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.userId | string | The identifier of the wallet to be retrieved. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -230,7 +232,7 @@ wallets.bip38.info
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -242,7 +244,7 @@ wallets.bip38.info
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -258,24 +260,24 @@ wallets.bip38.info
 
 ### Method
 
-```
+```text
 wallets.bip38.create
 ```
 
 ### Body Parameters
 
-| Name          |  Type  | Description                                   | Required |
-| :------------ | :----: | :-------------------------------------------- | :------: |
-| jsonrpc       | string | The protocol version.                         |   Yes    |
-| id            | string | The identifier of the request.                |   Yes    |
-| method        | string | The method name.                              |   Yes    |
-| params        | object | The parameters of the request.                |   Yes    |
-| params.bip38  | string | The bip38 of the wallet to be retrieved.      |   Yes    |
-| params.userId | string | The identifier of the wallet to be retrieved. |   Yes    |
+| Name | Type | Description | Required |
+| :--- | :---: | :--- | :---: |
+| jsonrpc | string | The protocol version. | Yes |
+| id | string | The identifier of the request. | Yes |
+| method | string | The method name. | Yes |
+| params | object | The parameters of the request. | Yes |
+| params.bip38 | string | The bip38 of the wallet to be retrieved. | Yes |
+| params.userId | string | The identifier of the wallet to be retrieved. | Yes |
 
 ### Request
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -289,7 +291,7 @@ wallets.bip38.create
 
 ### Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -303,7 +305,7 @@ wallets.bip38.create
 
 ### Error Response
 
-```json
+```javascript
 {
   "jsonrpc": "2.0",
   "id": "unique-request-id",
@@ -314,3 +316,4 @@ wallets.bip38.create
   }
 }
 ```
+

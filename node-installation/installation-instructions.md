@@ -3,29 +3,31 @@ id: installation-instructions
 title: Relay node installation instructions (Bare Metal or VM)
 ---
 
+# Installation Instructions
+
 ## Introduction
 
-A Relay Node is a full node in the ARK network; it maintains a complete copy of the ledger (blockchain). These nodes serve as a public API endpoint, use an internal service discovery mechanism to locate other nodes and keep each other in sync. Public nodes are used by the SPV clients to transmit signed transactions.
+A Relay Node is a full node in the ARK network; it maintains a complete copy of the ledger \(blockchain\). These nodes serve as a public API endpoint, use an internal service discovery mechanism to locate other nodes and keep each other in sync. Public nodes are used by the SPV clients to transmit signed transactions.
 
 ## Recommended Hardware Requirements
 
-- 4GB RAM
-- 40GB SSD
-- 2 Cores
+* 4GB RAM
+* 40GB SSD
+* 2 Cores
 
 ARK Nodes execute many query intensive operations. The most cost-effective approach for running a high-performance node is choosing SSD over HDD. Increasing the total RAM improves cache performance.
 
 ## Configuration Requirements
 
-- Stable internet connection
-- Access to multiple open ports (actual ports may be configured)
+* Stable internet connection
+* Access to multiple open ports \(actual ports may be configured\)
 
-  | Service    | Port |      Required      | Enabled by default |              Documentation              |
-  | :--------- | :--: | :----------------: | :----------------:	| :-------------------------------------: |
-  | p2p        | 4001 | ✅                  | ✅                 | [reference](/api/p2p/)                  |
-  | public API | 4003 |        ❌           | ✅                 | [reference](/exchanges/public-api.html) |
-  | webhook    | 4004 |        ❌           |        ❌          | [reference](/api/webhooks/)             |
-  | JSON-RPC   | 8080 |        ❌           |        ❌          | [reference](/exchanges/json-rpc.html)   |
+  | Service | Port | Required | Enabled by default | Documentation |
+  | :--- | :---: | :---: | :---: | :---: |
+  | p2p | 4001 | ✅ | ✅ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/p2p/README.md) |
+  | public API | 4003 | ❌ | ✅ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/public-api.html) |
+  | webhook | 4004 | ❌ | ❌ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/webhooks/README.md) |
+  | JSON-RPC | 8080 | ❌ | ❌ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/json-rpc.html) |
 
 ## Using the Official `Installation Script`
 
@@ -109,7 +111,7 @@ If the process has started you will get a message:
 Starting ark-relay... done
 ```
 
-> All CLI commands with description can be viewed at [CLI Commands](/guidebook/core/cli.html#available-commands) or by executing the `ark help` command.
+> All CLI commands with description can be viewed at [CLI Commands](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/guidebook/core/cli.html#available-commands) or by executing the `ark help` command.
 
 ### 8. Checking to See if Everything Is Working
 
@@ -125,15 +127,14 @@ or
 pm2 logs
 ```
 
-If the process has started you will see a lot of messages like this (with actual data)
+If the process has started you will see a lot of messages like this \(with actual data\)
 
 ```bash
 [YYYY-DD-MM hh:mm:ss][DEBUG]: Delegate <delegate name> (<public key>) allowed to forge block <#> 👍
 ```
 
 > Synchronization of the blockchain can take upwards of 10 hours so let it run, once its synronized `allowed to forge block` messages will only pop-up every 8 seconds. A single round consists of 51 delegates each forging a single block.
-
-
+>
 > Ensure you properly restart the node process when editing your `.env` file. Use the `--update-env` flag, for example:
 >
 > ```bash
@@ -144,15 +145,16 @@ If the process has started you will see a lot of messages like this (with actual
 
 > Please note that API will be available when the node has synced with the network, which can take up to 15 hours depending on your network speed.
 
-Now that the relay node has been configured, you should head over to the [JSON-RPC installation guide](/exchanges/json-rpc.html) or look at relevant [Public API endpoints](/exchanges/public-api.html) related to blockchain functionality to manage your wallets and transactions.
+Now that the relay node has been configured, you should head over to the [JSON-RPC installation guide](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/json-rpc.html) or look at relevant [Public API endpoints](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/public-api.html) related to blockchain functionality to manage your wallets and transactions.
 
 If you need to configure your node further, go to:
 
-- [Rate Limiting](/exchanges/rate-limiting.html)
-- [JSON-RPC](/exchanges/json-rpc.html)
+* [Rate Limiting](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/rate-limiting.html)
+* [JSON-RPC](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/json-rpc.html)
 
 ## Notes
 
-Please read the documentation pages for all of our [ARK API clients and cryptography libraries](/sdk/) (offered in many programming languages).
+Please read the documentation pages for all of our [ARK API clients and cryptography libraries](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/sdk/README.md) \(offered in many programming languages\).
 
-Also, read the [API documentation](/api/public/v2/).
+Also, read the [API documentation](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/public/v2/README.md).
+

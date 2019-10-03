@@ -3,11 +3,11 @@ id: examples
 title: Examples
 ---
 
+# Examples
+
 > All HTTP requests have to be sent with the `Content-Type: application/json` header. If the header is not present, it will result in malformed responses or request rejections.
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-```js
+```javascript
 const axios = require('axios') // install using npm: `npm install axios`
 const url = "http://0.0.0.0:8080" // http://${NODE_IP}:${JSON-RPC_PORT}
 const headers = {
@@ -24,7 +24,7 @@ axios.post(url, body, headers)
     console.log(error)
   })
 ```
-<!--Golang-->
+
 ```go
 package main
 
@@ -57,20 +57,17 @@ func main() {
     )
 }
 ```
-<!--Python-->
+
 ```python
 import requests
 
 r = requests.post("http://0.0.0.0:8080")
 print(r)
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 To complete the template, replace the empty `body` object with the objects provided in each quick action. The `blocks.latest` method, for example, can be accessed by the following script:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-```js
+```javascript
 const axios = require('axios')    // install from npm with `npm install axios`
 const url = "http://0.0.0.0:8080" // http://${NODE_ID}:${JSON-RPC-PORT}
 const headers = {
@@ -91,7 +88,7 @@ axios.post(url, body, headers)
     console.log(error)
   })
 ```
-<!--Golang-->
+
 ```go
 package main
 
@@ -129,7 +126,7 @@ func main() {
     )
 }
 ```
-<!--Python-->
+
 ```python
 import requests
 r = requests.post(
@@ -138,14 +135,12 @@ r = requests.post(
   )
 print(r)
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 ## Check Wallet Balance
 
-This method can be used to check the account balance associated with a particular ARK address. To utilize it, use the following body payload:
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-```js
+This method can be used to check the account balance associated with a particular ARK address. To utilize it, use the following body payload:  
+
+```javascript
 const body = {
   jsonrpc: "2.0",
   method: "wallets.info",
@@ -155,7 +150,7 @@ const body = {
   }
 }
 ```
-<!--Golang-->
+
 ```go
 package main
 
@@ -179,7 +174,7 @@ func main() {
     )
 }
 ```
-<!--Python-->
+
 ```python
 r = requests.post(
   "http://0.0.0.0:8080",
@@ -190,11 +185,10 @@ r = requests.post(
     }
   )
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 The response will contain the `jsonrpc` and `id` you used to call the request, along with a payload containing the following data:
 
-```json
+```javascript
 {
   "address": "AMv3iLrvyvpi6d4wEfLqX8kzMxaRvxAcHT",
   "balance": 245098210000000,
@@ -209,16 +203,14 @@ The response will contain the `jsonrpc` and `id` you used to call the request, a
 
 If you want to retrieve the latest block on the blockchain, call the `blocks.latest` method with no parameters:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-```js
+```javascript
 const body = {
   jsonrpc: "2.0",
   method: "blocks.latest",
   id: 31 // internal ID to track responses
 };
 ```
-<!--Golang-->
+
 ```go
 package main
 
@@ -236,18 +228,17 @@ func main() {
     )
 }
 ```
-<!--Python-->
+
 ```python
 r = requests.post(
   "http://0.0.0.0:8080",
   json={"jsonrpc": "2.0", "method": "blocks.latest", "id": 31}
   )
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 This returns a response similar to the following:
 
-```json
+```javascript
 {
   "forged": {
     "amount": 0,
@@ -287,15 +278,13 @@ Creating a transaction using the JSON-RPC is a two-step process:
 
 The `transactions.create` endpoint accepts three parameters:
 
-- RecipientId
-- Amount
-- Passphrase
+* RecipientId
+* Amount
+* Passphrase
 
 An example transaction creation payload could look like this:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-```js
+```javascript
 const body = {
   jsonrpc: "2.0",
   method: "transactions.create",
@@ -307,7 +296,7 @@ const body = {
   }
 }
 ```
-<!--Golang-->
+
 ```go
 package main
 
@@ -335,7 +324,7 @@ func main() {
     )
 }
 ```
-<!--Python-->
+
 ```python
 r = requests.post(
   "http://0.0.0.0:8080",
@@ -348,11 +337,10 @@ r = requests.post(
     }
   )
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 This endpoint will return a transaction object similar to the following:
 
-```json
+```javascript
 {
   "amount": "200000000",
   "fee": 10000000,
@@ -371,9 +359,7 @@ This request should have a `params` object with a single key: the `id` key retur
 
 With the returned ID, our second request body looks like this:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-```js
+```javascript
 const body = {
   jsonrpc: "2.0",
   method: "transactions.broadcast",
@@ -383,7 +369,7 @@ const body = {
   }
 }
 ```
-<!--Golang-->
+
 ```go
 package main
 
@@ -406,9 +392,8 @@ func main() {
         },
     )
 }
-
 ```
-<!--Python-->
+
 ```python
 r = requests.post(
   "http://0.0.0.0:8080",
@@ -419,7 +404,6 @@ r = requests.post(
     }
   )
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 If we receive the same transaction object as the call to `transactions.create`, our transaction was successful. Within your application, one way to confirm the result is to check that `result.id` matches the transaction ID you provided to the endpoint.
 
@@ -431,9 +415,7 @@ Checking the number of confirmations a transaction can be done via JSON-RPC by t
 
 The command accepts one parameter: the `id` of the transaction to query. A sample request could look like:
 
-<!--DOCUSAURUS_CODE_TABS-->
-<!--JavaScript-->
-```js
+```javascript
 const body = {
   jsonrpc: "2.0",
   method: "transactions.info",
@@ -443,7 +425,7 @@ const body = {
   }
 };
 ```
-<!--Golang-->
+
 ```go
 package main
 
@@ -466,9 +448,8 @@ func main() {
         },
     )
 }
-
 ```
-<!--Python-->
+
 ```python
 r = requests.post(
   "http://0.0.0.0:8080",
@@ -479,11 +460,10 @@ r = requests.post(
     }
   )
 ```
-<!--END_DOCUSAURUS_CODE_TABS-->
 
 If successful, you'll receive a response similar to the following:
 
-```json
+```javascript
 {
   "amount": 200000000,
   "blockId": "16888082711050311577",
@@ -504,3 +484,4 @@ If successful, you'll receive a response similar to the following:
 ```
 
 This particular transaction has 27 confirmations, meaning you can be confident that this transaction has been irreversibly included in the blockchain. Most exchanges use a minimum of 51 confirmations, which is one complete round.
+
