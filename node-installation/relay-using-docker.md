@@ -1,15 +1,10 @@
 ---
 id: relay-using-docker
 title: Run a relay node using Docker
+description: Production Docker Instructions
 ---
 
-# Installation Using Docker
-
-### Recommended Hardware Requirements
-
-* 4GB RAM
-* 40GB SSD
-* 2 Cores
+# Docker Installation
 
 ARK Nodes execute many query intensive operations. The most cost-effective approach for running a high-performance node is choosing SSD over HDD. Increasing the total RAM improves cache performance.
 

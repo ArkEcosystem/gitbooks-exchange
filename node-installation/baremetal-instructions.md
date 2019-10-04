@@ -1,35 +1,12 @@
 ---
 id: installation-instructions
 title: Relay node installation instructions (Bare Metal or VM)
+description: Production BareMetal or VM Install Instructions
 ---
 
-# Installation Instructions
+# BareMetal or VM Install
 
-## Introduction
-
-A Relay Node is a full node in the ARK network; it maintains a complete copy of the ledger \(blockchain\). These nodes serve as a public API endpoint, use an internal service discovery mechanism to locate other nodes and keep each other in sync. Public nodes are used by the SPV clients to transmit signed transactions.
-
-## Recommended Hardware Requirements
-
-* 4GB RAM
-* 40GB SSD
-* 2 Cores
-
-ARK Nodes execute many query intensive operations. The most cost-effective approach for running a high-performance node is choosing SSD over HDD. Increasing the total RAM improves cache performance.
-
-## Configuration Requirements
-
-* Stable internet connection
-* Access to multiple open ports \(actual ports may be configured\)
-
-  | Service | Port | Required | Enabled by default | Documentation |
-  | :--- | :---: | :---: | :---: | :---: |
-  | p2p | 4001 | ✅ | ✅ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/p2p/README.md) |
-  | public API | 4003 | ❌ | ✅ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/public-api.html) |
-  | webhook | 4004 | ❌ | ❌ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/webhooks/README.md) |
-  | JSON-RPC | 8080 | ❌ | ❌ | [reference](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/json-rpc.html) |
-
-## Using the Official `Installation Script`
+## Installation Using the Official `Installation Script`
 
 On a fresh Ubuntu installation, follow these commands.
 
@@ -145,16 +122,17 @@ If the process has started you will see a lot of messages like this \(with actua
 
 > Please note that API will be available when the node has synced with the network, which can take up to 15 hours depending on your network speed.
 
-Now that the relay node has been configured, you should head over to the [JSON-RPC installation guide](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/json-rpc.html) or look at relevant [Public API endpoints](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/public-api.html) related to blockchain functionality to manage your wallets and transactions.
+Now that the relay node has been configured, you should head over to the JSON-RPC Getting Started
 
-If you need to configure your node further, go to:
+{% page-ref page="../json-rpc/getting-started.md" %}
 
-* [Rate Limiting](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/rate-limiting.html)
-* [JSON-RPC](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/exchanges/json-rpc.html)
+ or look at relevant [Public API endpoints](https://api.ark.dev) related to blockchain functionality to manage your wallets and transactions.
+
+
 
 ## Notes
 
-Please read the documentation pages for all of our [ARK API clients and cryptography libraries](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/sdk/README.md) \(offered in many programming languages\).
+Please read the documentation pages for all of our [ARK SDK clients and cryptography libraries](https://sdk.ark.dev) \(offered in many programming languages\).
 
-Also, read the [API documentation](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/public/v2/README.md).
+Also, read the [API documentation.](https://api.ark.dev)
 

@@ -8,10 +8,10 @@ We have added "quick guides" to walk you through the process of interacting with
 
 Use the sidebar to navigate this section, or follow the links below:
 
-* [Relay node installation instructions \(Bare Metal or VM\)](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/node/installation-instructions/README.md)
-* [Run a relay node using Docker](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/node/relay-using-docker/README.md)
-* [JSON-RPC - Getting Started](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/json-rpc/getting-started/README.md)
-* [JSON-RPC - Examples](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/json-rpc/examples/README.md)
-* [JSON-RPC - Endpoints](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/json-rpc/endpoints/blocks/README.md)
-* [Public API quick guide](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/node/public-api-guide/README.md)
+* [Relay node installation instructions \(Bare Metal or VM\)](node-installation/baremetal-instructions.md)
+* [Run a relay node using Docker](node-installation/relay-using-docker.md)
+* [JSON-RPC - Getting Started](json-rpc/getting-started.md)
+* [JSON-RPC - Examples](json-rpc/examples.md)
+* [JSON-RPC - Endpoints](json-rpc/endpoints/)
+* [Public API quick guide](public-api/public-api-guide.md)
 
