@@ -4,7 +4,7 @@
 
 ## Core Node Installation <a id="node-installation"></a>
 
-* [Minimum Hardware Requirements](node-installation/core-node-installation.md)
+* [Hardware Requirements](node-installation/core-node-installation.md)
 * [BareMetal or VM Install](node-installation/baremetal-instructions.md)
 * [Docker Installation](node-installation/relay-using-docker.md)
 

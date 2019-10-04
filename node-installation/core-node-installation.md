@@ -1,4 +1,4 @@
-# Minimum Hardware Requirements
+# Hardware Requirements
 
 A Relay Node is a full node in the ARK network; it maintains a complete copy of the ledger \(blockchain\). These nodes serve as Public API endpoint, use an internal service discovery mechanism to locate other nodes and keep each other in sync. 
 
