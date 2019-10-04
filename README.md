@@ -2,7 +2,7 @@
 
 This section is tailored for institutional/production usage of ARK Core. Most exchanges and third-party services are familiar with `Bitcoind-RPC` when listing or adding a new cryptocurrency. Since ARK is a custom blockchain, some companies have had difficulty navigating through our GitHub and integrating ARK into their platform.
 
-The two most popular means of accessing the ARK blockchain are via the `Public API` and the `JSON-RPC`. Though the Public API is the recommended approach, we include instructions here on how to accomplish the most common tasks on both API surfaces.
+The two most popular means of accessing the ARK blockchain are via the `Public API` and the `JSON-RPC`. Though the [JSON-RPC](json-rpc/getting-started.md#usage-instructions) is the recommended approach, we include instructions here on how to accomplish the most common tasks on both API surfaces.
 
 We have added "quick guides" to walk you through the process of interacting with the ARK blockchain in each API.
 
