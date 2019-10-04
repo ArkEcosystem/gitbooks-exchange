@@ -3,7 +3,7 @@ id: relay-using-docker
 title: Run a relay node using Docker
 ---
 
-# Relay Using Docker
+# Installation Using Docker
 
 ### Recommended Hardware Requirements
 

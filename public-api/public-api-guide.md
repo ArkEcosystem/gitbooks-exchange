@@ -3,9 +3,16 @@ id: public-api-guide
 title: Public API quick guide
 ---
 
-# Public API Guide
+# Exchanges API Guide
 
-Connecting to the API is done via the Crypto and Client SDKs. Many queries can be performed using the Client SDK alone, while the Crypto SDK performs any actions requiring cryptographic functionality \(i.e., signing transactions\).
+{% hint style="info" %}
+**For exchanges we recommend the usage of** [**JSON-RPC server**](../json-rpc/getting-started.md#installation-via-yarn) **with optimized methods for client and crypto functionality.   
+  
+Best practice is to install a Relay Node and JSON-RPC in a secure environment.**  
+If really necessary then follow the basic instructions for connection via Public REST API. 
+{% endhint %}
+
+Connecting to the PUBLIC API is done via the [Crypto and Client SDKs](https://sdk.ark.dev). Many queries can be performed using the Client SDK alone, while the Crypto SDK performs any actions requiring cryptographic functionality \(i.e., signing transactions\).
 
 At a surface level, the two SDKs are separated by their functions and intended use cases:
 
