@@ -5,7 +5,7 @@ title: Examples
 
 # Examples
 
-> All HTTP requests have to be sent with the `Content-Type: application/json` header. If the header is not present, it will result in malformed responses or request rejections.
+> All HTTP requests have to be sent with the `Content-Type: application/vnd.api+json` header. If the header is not present, it will result in malformed responses or request rejections.
 
 ```javascript
 const axios = require('axios') // install using npm: `npm install axios`
