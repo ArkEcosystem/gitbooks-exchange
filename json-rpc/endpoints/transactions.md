@@ -159,6 +159,8 @@ transactions.create
 | params.recipientId | string | The address of the recipient. | Yes |
 | params.amount | string | The amount to be send. | Yes |
 | params.passphrase | string | The passphrase of the sender. | Yes |
+| params.vendorField | string | Optional field with custom content | No |
+| params.fee | string | Transaction Fee. If not set the average fee is read from the network. | No |
 
 ### Request
 
