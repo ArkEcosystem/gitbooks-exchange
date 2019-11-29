@@ -162,6 +162,14 @@ transactions.create
 | params.vendorField | string | Optional field with custom content. | No |
 | params.fee | string | Transaction Fee. If not set the average fee is read from the network. | No |
 
+{% hint style="info" %}
+Parameter **params.fee** is optional. If the parameter is not set, transaction is created by using the current public network average fee. 
+{% endhint %}
+
+{% hint style="danger" %}
+Make sure to check the network[ for average fee values](https://api.ark.dev/public-rest-api/endpoints/node#retrieve-the-fee-statistics), before signing and sending a transaction. This is to handle edge case of them being higher than the current static ones.
+{% endhint %}
+
 ### Request
 
 ```javascript
@@ -232,6 +240,14 @@ transactions.list
 | params.userId | string | The identifier of the sender. | Yes |
 | params.vendorField | string | Optional field with custom content. | No |
 | params.fee | string | Transaction Fee. If not set the average fee is read from the network. | No |
+
+{% hint style="info" %}
+Parameter **params.fee** is optional. If the parameter is not set, transaction is created by using the current public network average fee. 
+{% endhint %}
+
+{% hint style="danger" %}
+Make sure to check the network[ for average fee values](https://api.ark.dev/public-rest-api/endpoints/node#retrieve-the-fee-statistics), before signing and sending a transaction. This is to handle edge case of them being higher than the current static ones.
+{% endhint %}
 
 ### Response
 
