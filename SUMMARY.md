@@ -19,5 +19,6 @@
 
 ## PUBLIC API
 
-* [Exchanges API Guide](public-api/public-api-guide.md)
+* [Exchanges API Guide](public-api-guide.md)
+* [Configuring Rate Limits](configuring-rate-limits.md)
 

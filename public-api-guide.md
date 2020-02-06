@@ -6,7 +6,7 @@ title: Public API quick guide
 # Exchanges API Guide
 
 {% hint style="info" %}
-**For exchanges we recommend the usage of** [**JSON-RPC server**](../json-rpc/getting-started.md#installation-via-yarn) **with optimized methods for client and crypto functionality.   
+**For exchanges we recommend the usage of** [**JSON-RPC server**](json-rpc/getting-started.md#installation-via-yarn) **with optimized methods for client and crypto functionality.   
   
 Best practice is to install a Relay Node and JSON-RPC in a secure environment.**  
 If really necessary then follow the basic instructions for connection via Public REST API. 
@@ -21,7 +21,7 @@ At a surface level, the two SDKs are separated by their functions and intended u
 
 Put another way, the Crypto SDK structures your data in a format that all ARK nodes can understand, while the Client SDK handles the actual communication between your application and an ARK node. Where the Crypto SDK is internal, the Client SDK is external, as the below diagram illustrates:
 
-![](../.gitbook/assets/client-crypto.png)
+![](.gitbook/assets/client-crypto.png)
 
 > Note that the [Public API](https://github.com/ArkEcosystem/gitbooks-exchange/tree/8af5049dc3d84a5f24ac80597529f2d656c651df/api/public/README.md) is only available after a node has fully synced. This ensures your data on the blockchain is up to date.
 
@@ -315,7 +315,7 @@ If we had submitted any invalid transactions, the `invalid` list would have cont
 
 The diagram below offers a top-level overview of the transaction submission process:
 
-![](../.gitbook/assets/transaction-flow.png)
+![](.gitbook/assets/transaction-flow.png)
 
 ## Check Transaction Confirmations
 
