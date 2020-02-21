@@ -169,7 +169,7 @@ docker logs postgres-mainnet
 ### Monitoring Relay Logs:
 
 ```bash
-docker exec -it core-mainnet pm2 logs
+docker logs --tail 50 core-mainnet -f
 ```
 
 ## Update
